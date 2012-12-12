@@ -1,5 +1,108 @@
 /* Will be compiled down to a single stylesheet with your sass files */
 @import "normalize.scss";
 @import "boilerplate_top.scss";
+@import "font_imports.scss";
+@import "animations.scss";
+
+//Extract to variables.scss
+//$font_family: 'AsapRegular', sans-serif;
+$font_family: 'AsapRegular', sans-serif;
+
+$baseColor: #594C38;
+$baseColorDark: #211C15;
+$baseColorLight: #A69478;
+$greyLight: #5D5D5D;
+
+$viewportHeight: 578px;
+$baseBlockHeight: $viewportHeight / 3;
+
+body { 
+  margin: 0;
+  padding: 0;
+  font-family: $font_family;
+  color: $greyLight;
+  background: $baseColorDark;
+  overflow-x: hidden;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+.nav {
+  height: 80px;
+  background: $baseColorDark;
+  border-bottom: solid 4px $baseColorLight;
+}
+#viewport{
+  height: $viewportHeight;
+}
+.footer {
+  background: $baseColorDark;
+  height: 80px;
+  border-top: solid 4px $baseColorLight;
+}
+
+.inner-container {
+  width: 1024px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.panel {
+  postition: relative;
+  opacity: 0;
+  .over-container {
+    padding: 20px;
+    z-index: 10;
+    position: relative;
+    left: -100%;
+  }
+  &.under-container {
+    top: 0;
+    position: relative;
+    background-size: cover;
+  }
+  &.panel1 {
+    .container {
+      color: #fff;
+      background: $baseColor;
+      border-bottom: solid 4px darken($baseColor, 5%);
+    }
+    background: url(../images/carving.jpg) left bottom no-repeat;
+    background-size: cover;
+  }
+  &.panel2 {
+    .over-container {
+      overflow: hidden;
+      left: 200%;
+    }
+    .container {
+      color: $baseColor;
+      background: $baseColorLight;
+      border-bottom: solid 4px darken($baseColorLight, 5%);
+    }
+    background: url(../images/computers.jpg) left bottom no-repeat;
+    background-size: cover;
+  }
+  &.panel3 {
+    .container {
+      color: $baseColorLight;
+      background: #fff;
+    }
+    background: url(../images/carving.jpg) center -180px no-repeat;
+    background-size: cover;
+  }
+}
+
+.container {
+  height: $baseBlockHeight;
+  h1 {
+    font-size: 3em;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+  }
+}
 
 @import "boilerplate_bottom.scss"

@@ -3,13 +3,17 @@ require.config({
   },
 
   paths: {
+    app: 'app/',
     hm: 'vendor/hm',
     esprima: 'vendor/esprima',
-    jquery: 'vendor/jquery.min'
+    jquery: 'vendor/jquery.min',
+    waitForImages: 'vendor/jquery.waitforimages.min',
+    tweenLite: 'vendor/gsap/TweenLite',
+    tweenLiteCSS: 'vendor/gsap/plugins/CSSPlugin',
+    tweenLiteEasePack: 'vendor/gsap/easing/EasePack'
   }
 });
  
-require(['app'], function(app) {
-  // use app here
-  console.log(app);
+require(['app/intro'], function(intro) {
+  intro.start();
 });
